@@ -1,0 +1,56 @@
+﻿<Window x:Class="PointApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PointApp"
+        mc:Ignorable="d"
+        Title="Операции с точками" Height="479" Width="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto" MinHeight="19.29"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Операции с точками на плоскости" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0,31,0,10" Grid.RowSpan="2">
+            <TextBlock Text="Координаты точки (X Y):" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="txtCoordinates" Width="100" Margin="0,0,5,0"/>
+            <Button x:Name="btnCreatePoint" Content="Создать точку" Click="BtnCreatePoint_Click" Padding="5,2"/>
+        </StackPanel>
+
+        <GroupBox Grid.Row="1" Header="Текущая точка" Margin="0,21,0,0" Grid.RowSpan="2" FontWeight="Bold" Background="#FFF0F0F0">
+            <TextBlock x:Name="txtCurrentPoint" Text="Точка не создана" HorizontalAlignment="Center" FontSize="14" Foreground="DarkBlue"/>
+        </GroupBox>
+
+        <GroupBox Grid.Row="3" Header="Операции с точкой" Height="281" VerticalAlignment="Top" Margin="0,37,0,0">
+            <StackPanel Height="507">
+                <Button x:Name="btnIncrement" Content="Инкремент (++)" Click="BtnIncrement_Click" Margin="0,5" Padding="5,2"/>
+                <Button x:Name="btnDecrement" Content="Декремент (--)" Click="BtnDecrement_Click" Margin="0,5" Padding="5,2"/>
+                <Button x:Name="btnExplicitCast" Content="Явное приведение к int (X)" Click="BtnExplicitCast_Click" Margin="0,5" Padding="5,2"/>
+                <Button x:Name="btnImplicitCast" Content="Неявное приведение к double (Y)" Click="BtnImplicitCast_Click" Margin="0,5" Padding="5,2"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <Button x:Name="btnDistance" Content="Расстояние до точки:" Click="BtnDistance_Click" Margin="0,0,5,0" Padding="5,2"/>
+                    <TextBox x:Name="txtSecondPoint" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <Button x:Name="btnAddNumber" Content="Сдвиг по X (+ число):" Click="BtnAddNumber_Click" Margin="0,0,5,0" Padding="5,2"/>
+                    <TextBox x:Name="txtNumber" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <Button x:Name="btnSubtractNumber" Content="Сдвиг по X (- число):" Click="BtnSubtractNumber_Click" Margin="0,0,5,0" Padding="5,2"/>
+                    <TextBox x:Name="txtSubtractNumber" Width="100"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <TextBlock Grid.Row="4" x:Name="txtResult" Text="" Foreground="Blue" Margin="0,2,0,0"/>
+    </Grid>
+</Window>
