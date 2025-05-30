@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Windows;          // Для Window
-using System.Windows.Controls; // Для некоторых элементов управления
-using System.Windows.Input;    
+using System.Windows;          // Для Window    
 using System.Windows.Media;    // Для работы с цветами
 
 namespace PointApp
