@@ -1,5 +1,7 @@
-﻿using System;
-using System.Windows;          // Для Window    
+using System;
+using System.Windows;          // Для Window
+using System.Windows.Controls; // Для некоторых элементов управления
+using System.Windows.Input;    
 using System.Windows.Media;    // Для работы с цветами
 
 namespace PointApp
@@ -52,7 +54,7 @@ namespace PointApp
         {
             if (CheckPointCreated())
             {
-                currentPoint = ++currentPoint;
+                ++currentPoint;
                 UpdateUI();
                 ShowResult($"После ++: {currentPoint}");
             }
@@ -62,7 +64,7 @@ namespace PointApp
         {
             if (CheckPointCreated())
             {
-                currentPoint = --currentPoint;
+                --currentPoint;
                 UpdateUI();
                 ShowResult($"После --: {currentPoint}");
             }
@@ -123,9 +125,9 @@ namespace PointApp
                     return;
                 }
 
-                if (!int.TryParse(input, out int num))
+                if (!double.TryParse(input, out double num))
                 {
-                    ShowError("Введите целое число!");
+                    ShowError("Введите число (целое или дробное)!");
                     return;
                 }
 
@@ -151,7 +153,7 @@ namespace PointApp
                     return;
                 }
 
-                if (!int.TryParse(input, out int num))
+                if (!double.TryParse(input, out double num))
                 {
                     ShowError("Введите целое число!");
                     return;
