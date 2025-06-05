@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class Point
 {
@@ -14,12 +14,14 @@ public class Point
     // Унарные операторы (инкремент/декремент)
     public static Point operator ++(Point p)
     {
-        return new Point(p.X + 1, p.Y);
+        p.X += 1;
+        return p;
     }
 
     public static Point operator --(Point p)
     {
-        return new Point(p.X - 1, p.Y);
+        p.X -= 1;
+        return p;
     }
 
     // Бинарные операторы (сложение и вычитание)
@@ -34,13 +36,13 @@ public class Point
     }
 
     // Сложение точки с числом (сдвиг по X)
-    public static Point operator +(Point p, int value)
+    public static Point operator +(Point p, double value)
     {
         return new Point(p.X + value, p.Y);
     }
 
     // Вычитание числа из точки (сдвиг по X)
-    public static Point operator -(Point p, int value)
+    public static Point operator -(Point p, double value)
     {
         return new Point(p.X - value, p.Y);
     }
